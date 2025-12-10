@@ -1,0 +1,110 @@
+{
+    "hero": {
+        "title": "Scaling Brands in the Age of AI & Web3",
+        "subtitle": "We define the digital frontier. From generative marketing to decentralized communities, we build the systems that power the next generation of business.",
+        "cta_primary": "Our Work",
+        "cta_secondary": "Services"
+    },
+    "services_section": {
+        "title": "Comprehensive Digital Solutions",
+        "subtitle": "Whether you're scaling a traditional enterprise or launching a decentralized protocol, we have the tools.",
+        "web2_tab": "Brand Growth (Web2)",
+        "web3_tab": "Web3 Innovation",
+        "web2_items": [
+            {
+                "title": "AI Performance Marketing",
+                "description": "Data-driven campaigns optimized by machine learning algorithms for maximum ROI.",
+                "icon": "BarChart3",
+                "image": "/images/service-ai-analytics.png"
+            },
+            {
+                "title": "Brand Strategy",
+                "description": "Positioning your business for the digital age with clear, human-centric storytelling.",
+                "icon": "Megaphone"
+            },
+            {
+                "title": "Content Production",
+                "description": "High-quality, AI-assisted content creation that scales without losing soul.",
+                "icon": "Layers"
+            }
+        ],
+        "web3_items": [
+            {
+                "title": "Community Architecture",
+                "description": "Building engaged, decentralized communities that drive protocol adoption.",
+                "icon": "Users",
+                "image": "/images/service-web3-community.png"
+            },
+            {
+                "title": "Token Strategy",
+                "description": "Economic modeling and go-to-market strategy for token launches.",
+                "icon": "Cpu"
+            },
+            {
+                "title": "DeFi Marketing",
+                "description": "Navigating the complex landscape of decentralized finance with compliance-aware growth.",
+                "icon": "Globe"
+            }
+        ]
+    },
+    "bridge_section": {
+        "title": "We Speak Every Language of Growth",
+        "subtitle": "From SEO to DAOs, we bridge the gap between today's business needs and tomorrow's technology.",
+        "web2_label": "Web2",
+        "web2_sublabel": "Traditional Enterprise",
+        "web3_label": "Web3",
+        "web3_sublabel": "Decentralized Future"
+    },
+    "testimonials_section": {
+        "title": "Client Stories",
+        "subtitle": "Don't just take our word for it.",
+        "items": [
+            {
+                "quote": "Lumina bridged the gap between our traditional retail model and the Web3 world seamlessly. The results speak for themselves.",
+                "author": "Sarah Jenkins",
+                "role": "CMO, LuxeRetail",
+                "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
+            },
+            {
+                "quote": "Their AI analytics dashboard gave us insights we didn't even know were possible. A true partner in growth.",
+                "author": "David Chen",
+                "role": "Founder, TechFlow",
+                "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
+            },
+            {
+                "quote": "Finally, an agency that understands both community building and tokenomics. They helped us launch with confidence.",
+                "author": "Elena Rodriguez",
+                "role": "Lead Dev, EtherScale",
+                "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
+            }
+        ]
+    },
+    "faq_section": {
+        "title": "Common Questions",
+        "subtitle": "Clarifying the complex world of AI and Web3.",
+        "items": [
+            {
+                "question": "Do I need to be a Web3 company to work with you?",
+                "answer": "Not at all. We work with traditional Web2 brands looking to optimize their digital presence using AI, as well as companies looking to make their first entry into Web3. Our 'Bridge' approach means we meet you where you are."
+            },
+            {
+                "question": "How does AI integration help my marketing?",
+                "answer": "We use AI to analyze vast amounts of data to predict trends, personalize customer experiences at scale, and optimize ad spend in real-time. This typically results in a 20-40% increase in ROI compared to traditional methods."
+            },
+            {
+                "question": "What is your typical project timeline?",
+                "answer": "Timelines vary by project scope. A typical brand strategy and website overhaul takes 6-8 weeks, while a comprehensive Web3 launch strategy might take 3-4 months. We provide detailed roadmaps during our initial consultation."
+            },
+            {
+                "question": "Do you handle smart contract development?",
+                "answer": "Yes, we have a dedicated team of Solidity and Rust engineers who work alongside our creative team to ensure your protocol is not only beautiful but secure and functional."
+            }
+        ]
+    },
+    "cta_section": {
+        "title": "Ready to Future-Proof Your Brand?",
+        "subtitle": "Join the forward-thinking companies leveraging AI and Web3 for exponential growth.",
+        "button_text": "Schedule Your Free Consultation",
+        "button_link": "/contact"
+    }
+}

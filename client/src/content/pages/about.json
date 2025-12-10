@@ -1,0 +1,41 @@
+{
+    "header": {
+        "title": "About Lumina",
+        "subtitle": "We are a collective of strategists, engineers, and creatives building the future of the internet."
+    },
+    "mission": {
+        "title": "Our Mission",
+        "content_1": "The digital landscape is fracturing. On one side, traditional Web2 businesses are struggling to adapt to AI and blockchain. On the other, Web3 projects often lack the polish and strategic rigor of established brands.",
+        "content_2": "Lumina exists to bridge this divide. We believe the future isn't about choosing between \"old\" and \"new\"—it's about intelligent integration. We bring the stability of enterprise strategy to the wild frontier of Web3, and the innovation of decentralized tech to traditional markets.",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+    },
+    "team": {
+        "title": "Meet the Team",
+        "members": [
+            {
+                "name": "Alex Rivera",
+                "role": "Founder & CEO",
+                "bio": "Former VP of Marketing at TechGiant turned Web3 evangelist. Alex bridges the gap between corporate strategy and decentralized innovation.",
+                "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+            },
+            {
+                "name": "Sarah Wu",
+                "role": "Head of AI Strategy",
+                "bio": "PhD in Machine Learning. Sarah leads our data science team, ensuring every campaign is backed by rigorous analysis.",
+                "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop"
+            },
+            {
+                "name": "Marcus Thorne",
+                "role": "Creative Director",
+                "bio": "Award-winning designer with a passion for generative art and immersive web experiences.",
+                "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+            },
+            {
+                "name": "Elena Kova",
+                "role": "Web3 Lead",
+                "bio": "Early DeFi adopter and community builder. Elena understands the nuances of tokenomics and DAO governance.",
+                "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
+            }
+        ]
+    }
+}

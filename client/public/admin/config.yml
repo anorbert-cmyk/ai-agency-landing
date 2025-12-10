@@ -1,0 +1,185 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "client/public/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "client/src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "work"
+    label: "Case Studies"
+    folder: "client/src/content/work"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Client", name: "client", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Result Metric", name: "result", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Card Gradient", name: "color", widget: "string", hint: "e.g. from-blue-400 to-indigo-400"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "client/src/content/pages/home.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Primary CTA", name: "cta_primary", widget: "string"}
+              - {label: "Secondary CTA", name: "cta_secondary", widget: "string"}
+          - label: "Services Section"
+            name: "services_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Web2 Tab Label", name: "web2_tab", widget: "string"}
+              - {label: "Web3 Tab Label", name: "web3_tab", widget: "string"}
+              - label: "Web2 Items"
+                name: "web2_items"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Icon Name", name: "icon", widget: "string"}
+                  - {label: "Image (Optional)", name: "image", widget: "image", required: false}
+              - label: "Web3 Items"
+                name: "web3_items"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Icon Name", name: "icon", widget: "string"}
+                  - {label: "Image (Optional)", name: "image", widget: "image", required: false}
+          - label: "Bridge Section"
+            name: "bridge_section"
+            widget: "object"
+            fields:
+               - {label: "Title", name: "title", widget: "string"}
+               - {label: "Subtitle", name: "subtitle", widget: "text"}
+               - {label: "Web2 Label", name: "web2_label", widget: "string"}
+               - {label: "Web2 Sublabel", name: "web2_sublabel", widget: "string"}
+               - {label: "Web3 Label", name: "web3_label", widget: "string"}
+               - {label: "Web3 Sublabel", name: "web3_sublabel", widget: "string"}
+          - label: "Testimonials Section"
+            name: "testimonials_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Quote", name: "quote", widget: "text"}
+                  - {label: "Author", name: "author", widget: "string"}
+                  - {label: "Role", name: "role", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image"}
+          - label: "FAQ Section"
+            name: "faq_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Question", name: "question", widget: "string"}
+                  - {label: "Answer", name: "answer", widget: "text"}
+          - label: "Bottom CTA Section"
+            name: "cta_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Button Text", name: "button_text", widget: "string"}
+              - {label: "Button Link", name: "button_link", widget: "string"}
+      
+      - name: "about"
+        label: "About Page"
+        file: "client/src/content/pages/about.json"
+        fields:
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Mission Section"
+            name: "mission"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Content Part 1", name: "content_1", widget: "text"}
+              - {label: "Content Part 2", name: "content_2", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Team Section"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Role", name: "role", widget: "string"}
+                  - {label: "Bio", name: "bio", widget: "text"}
+                  - {label: "Photo", name: "image", widget: "image"}
+
+      - name: "services"
+        label: "Services Page"
+        file: "client/src/content/pages/services.json"
+        fields:
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Services List"
+            name: "services_list"
+            widget: "list"
+            fields:
+              - {label: "Category Name", name: "category", widget: "string"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Icon Name (Lucide)", name: "icon", widget: "string"}
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - {label: "Button Text", name: "button_text", widget: "string"}

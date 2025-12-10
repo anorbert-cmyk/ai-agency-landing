@@ -1,0 +1,96 @@
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
+import { motion } from "framer-motion";
+import { getPageContent } from "@/lib/content";
+import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+
+export default function AboutPage() {
+  const [content, setContent] = useState<any>(null);
+
+  useEffect(() => {
+    getPageContent("about").then(setContent);
+  }, []);
+
+  if (!content) return null;
+
+  return (
+    <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
+      <Helmet>
+        <title>{content.header.title} | Lumina</title>
+        <meta name="description" content={content.header.subtitle} />
+      </Helmet>
+      <Navigation />
+
+      <main className="flex-grow">
+        <PageHeader
+          title={content.header.title}
+          subtitle={content.header.subtitle}
+          gradient="from-blue-500 to-teal-400"
+        />
+
+        <section className="pb-24">
+          <div className="container">
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl font-bold mb-6">{content.mission.title}</h2>
+                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                  {content.mission.content_1}
+                </p>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  {content.mission.content_2}
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl"
+              >
+                <img
+                  src={content.mission.image}
+                  alt="Team collaborating"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
+
+            <h2 className="text-3xl font-bold mb-12 text-center">{content.team.title}</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {content.team.members.map((member: any, index: number) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group"
+                >
+                  <div className="mb-6 overflow-hidden rounded-2xl aspect-[3/4]">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                  <p className="text-primary font-medium mb-3">{member.role}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {member.bio}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
