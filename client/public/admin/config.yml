@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: anorbert-cmyk/ai-agency-landing
+  name: git-gateway
   branch: main
 
 media_folder: "client/public/images"
