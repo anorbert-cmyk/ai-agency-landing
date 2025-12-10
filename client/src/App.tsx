@@ -1,18 +1,22 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { HelmetProvider } from "react-helmet-async";
-import Home from "./pages/Home";
-import ServicesPage from "./pages/ServicesPage";
-import AboutPage from "./pages/AboutPage";
-import WorkPage from "./pages/WorkPage";
-import ContactPage from "./pages/ContactPage";
-import BlogPage from "./pages/BlogPage";
-import BlogPostDetail from "./pages/BlogPostDetail";
-import CaseStudyDetail from "./pages/CaseStudyDetail";
+import { lazy, Suspense } from "react";
+import LoadingSpinner from "./components/LoadingSpinner";
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import("./pages/Home"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const WorkPage = lazy(() => import("./pages/WorkPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostDetail = lazy(() => import("./pages/BlogPostDetail"));
+const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
   return (
@@ -48,7 +52,9 @@ function App() {
           {/* @ts-ignore */}
           <HelmetProvider>
             <Toaster />
-            <Router />
+            <Suspense fallback={<LoadingSpinner />}>
+              <Router />
+            </Suspense>
           </HelmetProvider>
         </TooltipProvider>
       </ThemeProvider>

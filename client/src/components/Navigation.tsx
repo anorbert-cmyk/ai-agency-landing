@@ -25,9 +25,10 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav py-4" : "bg-transparent py-6"
-      }`}
+      role="navigation"
+      aria-label="Main navigation"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-nav py-4" : "bg-transparent py-6"
+        }`}
     >
       <div className="container flex items-center justify-between">
         {/* Logo */}
@@ -38,8 +39,8 @@ export default function Navigation() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               href={link.href}
               className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
             >
@@ -57,17 +58,24 @@ export default function Navigation() {
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 glass-nav p-6 md:hidden flex flex-col gap-4 animate-in slide-in-from-top-5">
+        <div
+          id="mobile-menu"
+          role="menu"
+          className="absolute top-full left-0 right-0 glass-nav p-6 md:hidden flex flex-col gap-4 animate-in slide-in-from-top-5"
+        >
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               href={link.href}
               className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(false)}
