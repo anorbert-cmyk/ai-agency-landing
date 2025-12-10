@@ -1,35 +1,11 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch, Router as WouterRouter, useLocation } from "wouter";
-import { useMemo, useCallback } from "react";
+import { Route, Switch, Router } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
-
-// Custom hook for GitHub Pages base path
-const useBasePath = (base = "/ai-agency-landing") => {
-  const [location, setLocation] = useLocation();
-
-  const basedLocation = useMemo(() => {
-    // Remove the base from the current location
-    if (location.startsWith(base)) {
-      return location.slice(base.length) || "/";
-    }
-    return location;
-  }, [location, base]);
-
-  const navigate = useCallback(
-    (to: string) => {
-      // Add base to navigation
-      setLocation(base + to);
-    },
-    [setLocation, base]
-  );
-
-  return [basedLocation, navigate] as const;
-};
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -77,9 +53,9 @@ function App() {
           <HelmetProvider>
             <Toaster />
             <Suspense fallback={<LoadingSpinner />}>
-              <WouterRouter hook={useBasePath}>
+              <Router base="/ai-agency-landing">
                 <Routes />
-              </WouterRouter>
+              </Router>
             </Suspense>
           </HelmetProvider>
         </TooltipProvider>
