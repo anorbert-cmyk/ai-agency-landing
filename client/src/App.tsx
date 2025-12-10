@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router as WouterRouter } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { HelmetProvider } from "react-helmet-async";
@@ -18,7 +19,7 @@ const BlogPostDetail = lazy(() => import("./pages/BlogPostDetail"));
 const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-function Router() {
+function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -53,7 +54,9 @@ function App() {
           <HelmetProvider>
             <Toaster />
             <Suspense fallback={<LoadingSpinner />}>
-              <Router />
+              <WouterRouter hook={useHashLocation}>
+                <Routes />
+              </WouterRouter>
             </Suspense>
           </HelmetProvider>
         </TooltipProvider>
