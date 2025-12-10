@@ -1,20 +1,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import { getPageContent } from "@/lib/content";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import type { ServicesContent, ServicesCategory, ServicesListItem } from "@/types";
 
 export default function ServicesPage() {
-  const [content, setContent] = useState<any>(null);
+  const [content, setContent] = useState<ServicesContent | null>(null);
 
   useEffect(() => {
-    getPageContent("services").then(setContent);
+    getPageContent<ServicesContent>("services").then(setContent);
   }, []);
 
-  if (!content) return null;
+  if (!content) return <LoadingSpinner />;
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
@@ -32,7 +34,7 @@ export default function ServicesPage() {
 
         <section className="pb-24">
           <div className="container">
-            {content.services_list.map((section: any, sectionIndex: number) => (
+            {content.services_list.map((section: ServicesCategory, sectionIndex: number) => (
               <div key={section.category} className="mb-20 last:mb-0">
                 <motion.h2
                   initial={{ opacity: 0, x: -20 }}
@@ -44,9 +46,9 @@ export default function ServicesPage() {
                 </motion.h2>
 
                 <div className="grid md:grid-cols-2 gap-8">
-                  {section.items.map((item: any, index: number) => {
-                    // @ts-ignore
-                    const Icon = Icons[item.icon] || Icons.HelpCircle;
+                  {section.items.map((item: ServicesListItem, index: number) => {
+                    const IconComponent = Icons[item.icon as keyof typeof Icons];
+                    const Icon = typeof IconComponent === 'function' ? IconComponent : Icons.HelpCircle;
                     return (
                       <motion.div
                         key={item.title}

@@ -1,19 +1,21 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { motion } from "framer-motion";
 import { getPageContent } from "@/lib/content";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import type { AboutContent, TeamMember } from "@/types";
 
 export default function AboutPage() {
-  const [content, setContent] = useState<any>(null);
+  const [content, setContent] = useState<AboutContent | null>(null);
 
   useEffect(() => {
-    getPageContent("about").then(setContent);
+    getPageContent<AboutContent>("about").then(setContent);
   }, []);
 
-  if (!content) return null;
+  if (!content) return <LoadingSpinner />;
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
@@ -62,7 +64,7 @@ export default function AboutPage() {
 
             <h2 className="text-3xl font-bold mb-12 text-center">{content.team.title}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {content.team.members.map((member: any, index: number) => (
+              {content.team.members.map((member: TeamMember, index: number) => (
                 <motion.div
                   key={member.name}
                   initial={{ opacity: 0, y: 20 }}

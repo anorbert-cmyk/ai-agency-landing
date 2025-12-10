@@ -6,19 +6,21 @@ import Footer from "@/components/Footer";
 import CaseStudies from "@/components/CaseStudies";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import { Link } from "wouter";
 import { getPageContent } from "@/lib/content";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import type { HomeContent } from "@/types";
 
 export default function Home() {
-  const [content, setContent] = useState<any>(null);
+  const [content, setContent] = useState<HomeContent | null>(null);
 
   useEffect(() => {
-    getPageContent("home").then(setContent);
+    getPageContent<HomeContent>("home").then(setContent);
   }, []);
 
-  if (!content) return null; // Or loading spinner
+  if (!content) return <LoadingSpinner />;
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
