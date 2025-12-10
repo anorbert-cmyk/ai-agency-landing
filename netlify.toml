@@ -12,3 +12,4 @@
 # Enable Identity service (required for Decap CMS authentication)
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
