@@ -75,7 +75,7 @@ export default function ServicesPage() {
         </section>
 
         <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/bg-aurora-gradient.png')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+          <div className="absolute inset-0 bg-[url('/images/bg-aurora-gradient.webp')] opacity-10 bg-cover bg-center mix-blend-overlay" />
           <div className="container relative z-10 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">{content.cta.title}</h2>
             <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

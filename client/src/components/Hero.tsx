@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import orbImage from "../../public/images/hero-glass-orb.png";
+import orbImage from "../../public/images/hero-glass-orb.webp";
 
 export interface HeroProps {
   content?: {

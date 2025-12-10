@@ -15,7 +15,7 @@
                 "title": "AI Performance Marketing",
                 "description": "Data-driven campaigns optimized by machine learning algorithms for maximum ROI.",
                 "icon": "BarChart3",
-                "image": "/images/service-ai-analytics.png"
+                "image": "/images/service-ai-analytics.webp"
             },
             {
                 "title": "Brand Strategy",
@@ -33,7 +33,7 @@
                 "title": "Community Architecture",
                 "description": "Building engaged, decentralized communities that drive protocol adoption.",
                 "icon": "Users",
-                "image": "/images/service-web3-community.png"
+                "image": "/images/service-web3-community.webp"
             },
             {
                 "title": "Token Strategy",
