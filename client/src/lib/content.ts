@@ -43,7 +43,7 @@ async function loadMarkdownContent<T>(globs: Record<string, () => Promise<unknow
 
 // Blog Posts
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
-    const globs = import.meta.glob("@/content/blog/*.md", { as: "raw" });
+    const globs = import.meta.glob("../content/blog/*.md", { query: "?raw", import: "default" });
     const posts = await loadMarkdownContent<BlogPost>(globs);
     return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
@@ -55,7 +55,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | undefined> {
 
 // Case Studies
 export async function getAllCaseStudies(): Promise<CaseStudy[]> {
-    const globs = import.meta.glob("@/content/work/*.md", { as: "raw" });
+    const globs = import.meta.glob("../content/work/*.md", { query: "?raw", import: "default" });
     return loadMarkdownContent<CaseStudy>(globs);
 }
 
@@ -68,7 +68,7 @@ export async function getCaseStudy(slug: string): Promise<CaseStudy | undefined>
 export async function getPageContent<T>(pageName: string): Promise<T> {
     // Use a switch or specific globs because dynamic import with variable is tricky in Vite/Rollup
     // but we can glob all json files in content/pages
-    const globs = import.meta.glob("@/content/pages/*.json", { eager: true });
+    const globs = import.meta.glob("../content/pages/*.json", { eager: true });
 
     // Find the matching file
     const foundPath = Object.keys(globs).find(path => path.includes(`${pageName}.json`));

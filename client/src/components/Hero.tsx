@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import orbImage from "/images/hero-glass-orb.png?url";
 
 export interface HeroProps {
   content?: {
@@ -76,7 +77,7 @@ export default function Hero({ content }: HeroProps) {
         >
           {/* Main Glass Orb */}
           <motion.img
-            src="/images/hero-glass-orb.png"
+            src={orbImage}
             alt="Abstract Glass Orb"
             className="w-full max-w-[600px] object-contain drop-shadow-2xl"
             animate={{
