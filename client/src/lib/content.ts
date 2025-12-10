@@ -1,10 +1,37 @@
 // Helper to parse frontmatter without gray-matter (which requires Node Buffer)
 function parseFrontmatter(text: string) {
-    const match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
-    if (!match) return { data: {}, content: text };
+    if (typeof text !== 'string') return { data: {}, content: '' };
 
-    const frontmatterRaw = match[1];
-    const content = match[2].trim();
+    // Normalize newlines
+    const normalized = text.replace(/\r\n/g, '\n');
+
+    // Check if it starts with frontmatter delimiter
+    if (!normalized.startsWith('---\n')) {
+        return { data: {}, content: text };
+    }
+
+    // Find the end delimiter
+    // We look for \n---\n starting from index 3
+    const endDelimiterIndex = normalized.indexOf('\n---\n', 3);
+
+    if (endDelimiterIndex === -1) {
+        // Fallback: maybe it ends with just --- at EOF
+        if (normalized.endsWith('\n---')) {
+            const endIdx = normalized.length - 4;
+            const frontmatterRaw = normalized.slice(4, endIdx).trim();
+            const content = "";
+            return parseFrontmatterBlock(frontmatterRaw, content);
+        }
+        return { data: {}, content: text };
+    }
+
+    const frontmatterRaw = normalized.slice(4, endDelimiterIndex).trim();
+    const content = normalized.slice(endDelimiterIndex + 5).trim();
+
+    return parseFrontmatterBlock(frontmatterRaw, content);
+}
+
+function parseFrontmatterBlock(frontmatterRaw: string, content: string) {
     const data: Record<string, any> = {};
 
     frontmatterRaw.split('\n').forEach(line => {
@@ -14,12 +41,11 @@ function parseFrontmatter(text: string) {
         const key = line.slice(0, colonIndex).trim();
         let value = line.slice(colonIndex + 1).trim();
 
+        if (!value) return;
+
         // Handle arrays like ["a", "b"]
         if (value.startsWith('[') && value.endsWith(']')) {
             try {
-                // Replacing single quotes with double quotes for valid JSON if needed, 
-                // but usually CMS saves strict JSON or simple lists.
-                // This simple replacement handles basic cases.
                 data[key] = JSON.parse(value);
             } catch (e) {
                 // simple fallback for comma separated
