@@ -43,15 +43,13 @@ export default function Bridge({ content }: BridgeProps) {
           <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
 
             {/* Animated Energy Flow - Single beam with color transition */}
-            <div className="absolute left-4 right-4 top-1/2 h-8 -translate-y-1/2 pointer-events-none overflow-hidden">
-              {/* Single beam - color shifts from indigo to pink */}
+            <div className="absolute left-4 right-4 top-1/2 h-8 -translate-y-1/2 pointer-events-none overflow-hidden" style={{ containerType: "inline-size" }}>
+              {/* Single beam - GPU accelerated with color shift */}
               <div
-                className="absolute w-24 h-1 rounded-full"
+                className="absolute left-0 w-24 h-1 rounded-full animate-slide-beam"
                 style={{
-                  animation: "slideBeamColor 3s ease-in-out infinite",
                   top: "50%",
-                  marginTop: "-2px",
-                  background: "linear-gradient(90deg, transparent, var(--beam-color), transparent)"
+                  marginTop: "-2px"
                 }}
               />
             </div>
