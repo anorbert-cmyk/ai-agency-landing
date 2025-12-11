@@ -209,93 +209,43 @@ h6 {
   animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Bridge Energy Beam Animation - Split Around Center */
-@keyframes slideBeamTop {
+/* Bridge Energy Beam Animation - Color Transition */
+@keyframes slideBeamColor {
   0% {
     left: 0;
-    top: 50%;
     opacity: 0;
+    --beam-color: #818cf8;
+    /* indigo-400 */
+    background: linear-gradient(90deg, transparent, #818cf8, transparent);
   }
 
   10% {
     opacity: 1;
+    background: linear-gradient(90deg, transparent, #818cf8, transparent);
   }
 
-  /* Approach center - start moving up */
-  40% {
-    left: 40%;
-    top: 20%;
-    opacity: 1;
-  }
-
-  /* Pass center - peak of arc */
   50% {
-    left: 50%;
-    top: 10%;
+    left: calc(50% - 3rem);
     opacity: 1;
-  }
-
-  /* Leave center - moving back down */
-  60% {
-    left: 60%;
-    top: 20%;
-    opacity: 1;
+    background: linear-gradient(90deg, transparent, #a78bfa, transparent);
+    /* purple mix */
   }
 
   90% {
     opacity: 1;
+    background: linear-gradient(90deg, transparent, #f472b6, transparent);
+    /* pink-400 */
   }
 
   100% {
-    left: calc(100% - 5rem);
-    top: 50%;
+    left: calc(100% - 6rem);
     opacity: 0;
-  }
-}
-
-@keyframes slideBeamBottom {
-  0% {
-    left: 0;
-    top: 50%;
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  /* Approach center - start moving down */
-  40% {
-    left: 40%;
-    top: 80%;
-    opacity: 1;
-  }
-
-  /* Pass center - peak of arc */
-  50% {
-    left: 50%;
-    top: 90%;
-    opacity: 1;
-  }
-
-  /* Leave center - moving back up */
-  60% {
-    left: 60%;
-    top: 80%;
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-  100% {
-    left: calc(100% - 5rem);
-    top: 50%;
-    opacity: 0;
+    --beam-color: #f472b6;
+    /* pink-400 */
+    background: linear-gradient(90deg, transparent, #f472b6, transparent);
   }
 }
 
 .animate-slide-beam {
-  animation: slideBeamTop 3s ease-in-out infinite;
+  animation: slideBeamColor 3s ease-in-out infinite;
 }

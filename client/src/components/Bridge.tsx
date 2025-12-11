@@ -42,27 +42,16 @@ export default function Bridge({ content }: BridgeProps) {
           {/* Content Container */}
           <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
 
-            {/* Animated Energy Flow - Split around center */}
-            {/* Top beam - arcs above center */}
-            <div className="absolute left-4 right-4 top-1/2 h-16 -translate-y-1/2 pointer-events-none overflow-hidden">
+            {/* Animated Energy Flow - Single beam with color transition */}
+            <div className="absolute left-4 right-4 top-1/2 h-8 -translate-y-1/2 pointer-events-none overflow-hidden">
+              {/* Single beam - color shifts from indigo to pink */}
               <div
-                className="absolute w-20 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent rounded-full"
+                className="absolute w-24 h-1 rounded-full"
                 style={{
-                  animation: "slideBeamTop 3s ease-in-out infinite",
+                  animation: "slideBeamColor 3s ease-in-out infinite",
                   top: "50%",
-                  marginTop: "-1px"
-                }}
-              />
-            </div>
-
-            {/* Bottom beam - arcs below center */}
-            <div className="absolute left-4 right-4 top-1/2 h-16 -translate-y-1/2 pointer-events-none overflow-hidden">
-              <div
-                className="absolute w-20 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent rounded-full"
-                style={{
-                  animation: "slideBeamBottom 3s ease-in-out infinite",
-                  top: "50%",
-                  marginTop: "-1px"
+                  marginTop: "-2px",
+                  background: "linear-gradient(90deg, transparent, var(--beam-color), transparent)"
                 }}
               />
             </div>
