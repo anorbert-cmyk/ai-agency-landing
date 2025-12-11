@@ -208,3 +208,28 @@ h6 {
 .animate-pulse-slow {
   animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Bridge Energy Beam Animation */
+@keyframes slideBeam {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(calc(100vw - 6rem));
+    opacity: 0;
+  }
+}
+
+.animate-slide-beam {
+  animation: slideBeam 3s linear infinite;
+}

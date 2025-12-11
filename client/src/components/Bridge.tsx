@@ -42,48 +42,16 @@ export default function Bridge({ content }: BridgeProps) {
           {/* Content Container */}
           <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
 
-            {/* Animation Tracks - Simple horizontal beam */}
-            <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-px overflow-hidden pointer-events-none">
-              {/* Top arc beam */}
-              <motion.div
-                className="absolute left-0 w-20 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
-                style={{ top: "-8px" }}
-                animate={{
-                  x: ["0%", "calc(100% - 80px)"]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  repeatDelay: 0.3
-                }}
-              />
-              {/* Bottom arc beam */}
-              <motion.div
-                className="absolute left-0 w-20 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
-                style={{ top: "8px" }}
-                animate={{
-                  x: ["0%", "calc(100% - 80px)"]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  repeatDelay: 0.3,
-                  delay: 0.15
-                }}
-              />
-              {/* Center line beam */}
-              <motion.div
-                className="absolute left-0 w-16 h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-[1px]"
-                animate={{
-                  x: ["0%", "calc(100% - 64px)"]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatDelay: 0.5
+            {/* Animated Energy Flow Line */}
+            <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-1 pointer-events-none">
+              {/* Static base line */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent" />
+
+              {/* Animated beam - using CSS animation */}
+              <div
+                className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-transparent via-indigo-400 to-transparent animate-slide-beam"
+                style={{
+                  animation: "slideBeam 3s linear infinite"
                 }}
               />
             </div>
