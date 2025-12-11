@@ -40,31 +40,7 @@ export default function Hero({ content }: HeroProps) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
-          {/* Top Navigation */}
-          <div className="w-full flex justify-between items-center mb-16 md:mb-24 z-20 relative text-sm tracking-widest text-slate-300">
-            <Link href="/">
-              <a className="font-bold text-white hover:text-emerald-400 transition-colors">LUMINA DIGITAL</a>
-            </Link>
-
-            <div className="hidden md:flex gap-8 items-center bg-black/20 backdrop-blur-sm px-8 py-3 rounded-full border border-white/5">
-              <Link href="/services"><a className="hover:text-white transition-colors cursor-pointer">SERVICES</a></Link>
-              <Link href="/work"><a className="hover:text-white transition-colors cursor-pointer">WORK</a></Link>
-              <Link href="/about"><a className="text-white font-bold flex items-center gap-2 cursor-pointer">
-                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                AGENCY
-              </a></Link>
-              <Link href="/contact"><a className="hover:text-white transition-colors cursor-pointer">CONTACT</a></Link>
-            </div>
-
-            <Link href="/contact">
-              <Button size="sm" className="bg-white text-black hover:bg-slate-200 font-bold px-6 rounded-full">
-                BOOK CALL
-              </Button>
-            </Link>
-          </div>
-
-
-          <div className="relative mb-8 text-center">
+          <div className="relative mb-8 text-center pt-24 md:pt-32">
             {/* Tagline */}
             <div className="flex justify-center mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-md">

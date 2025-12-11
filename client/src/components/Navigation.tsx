@@ -31,25 +31,29 @@ export default function Navigation() {
         }`}
     >
       <div className="container flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary cursor-pointer">
-          Lumina Digital
-        </Link>
+        {/* Desktop Nav - Centered Layout */}
+        <div className="w-full hidden md:flex items-center justify-between px-6 py-2 rounded-full border border-white/10 bg-black/20 backdrop-blur-md">
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {/* Logo */}
+          <Link href="/" className="text-xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 cursor-pointer whitespace-nowrap">
+            Lumina Digital
+          </Link>
+
+          {/* Centered Links */}
+          <div className="flex items-center gap-8 mx-auto">
+            <Link href="/services"><a className="text-sm font-medium text-white/80 hover:text-white transition-colors">Services</a></Link>
+            <Link href="/work"><a className="text-sm font-medium text-white/80 hover:text-white transition-colors">Work</a></Link>
+            <Link href="/about"><a className="text-sm font-medium text-white/80 hover:text-white transition-colors flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+              Agency
+            </a></Link>
+            <Link href="/blog"><a className="text-sm font-medium text-white/80 hover:text-white transition-colors">Insights</a></Link>
+          </div>
+
+          {/* CTA */}
           <Link href="/contact">
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 shadow-lg shadow-primary/20">
-              Book Consultation
+            <Button size="sm" className="bg-white text-black hover:bg-white/90 rounded-full px-6 font-bold text-sm">
+              Book Call
             </Button>
           </Link>
         </div>
