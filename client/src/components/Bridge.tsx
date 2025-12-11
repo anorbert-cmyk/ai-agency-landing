@@ -42,53 +42,50 @@ export default function Bridge({ content }: BridgeProps) {
           {/* Content Container */}
           <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
 
-            {/* Animation Tracks - Split around center */}
-            {/* Top Path */}
-            <div className="absolute left-4 right-4 h-8 top-1/2 -translate-y-[calc(50%+16px)] overflow-hidden pointer-events-none">
-              <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="beam-gradient-top" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="transparent" />
-                    <stop offset="45%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="rgba(129, 140, 248, 0.6)" />
-                    <stop offset="55%" stopColor="transparent" />
-                    <stop offset="100%" stopColor="transparent" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  d="M 0,24 Q 50%,0 100%,24"
-                  fill="none"
-                  stroke="url(#beam-gradient-top)"
-                  strokeWidth="1"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: [0, 1], opacity: [0, 1, 1, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
-                />
-              </svg>
-            </div>
-
-            {/* Bottom Path */}
-            <div className="absolute left-4 right-4 h-8 top-1/2 translate-y-[calc(-50%+16px)] overflow-hidden pointer-events-none">
-              <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="beam-gradient-bottom" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="transparent" />
-                    <stop offset="45%" stopColor="transparent" />
-                    <stop offset="50%" stopColor="rgba(129, 140, 248, 0.6)" />
-                    <stop offset="55%" stopColor="transparent" />
-                    <stop offset="100%" stopColor="transparent" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  d="M 0,0 Q 50%,24 100%,0"
-                  fill="none"
-                  stroke="url(#beam-gradient-bottom)"
-                  strokeWidth="1"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: [0, 1], opacity: [0, 1, 1, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5, delay: 0.1 }}
-                />
-              </svg>
+            {/* Animation Tracks - Simple horizontal beam */}
+            <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-px overflow-hidden pointer-events-none">
+              {/* Top arc beam */}
+              <motion.div
+                className="absolute left-0 w-20 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
+                style={{ top: "-8px" }}
+                animate={{
+                  x: ["0%", "calc(100% - 80px)"]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatDelay: 0.3
+                }}
+              />
+              {/* Bottom arc beam */}
+              <motion.div
+                className="absolute left-0 w-20 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
+                style={{ top: "8px" }}
+                animate={{
+                  x: ["0%", "calc(100% - 80px)"]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatDelay: 0.3,
+                  delay: 0.15
+                }}
+              />
+              {/* Center line beam */}
+              <motion.div
+                className="absolute left-0 w-16 h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-[1px]"
+                animate={{
+                  x: ["0%", "calc(100% - 64px)"]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatDelay: 0.5
+                }}
+              />
             </div>
 
             {/* Labels Container */}
