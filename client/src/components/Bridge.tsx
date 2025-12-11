@@ -42,16 +42,27 @@ export default function Bridge({ content }: BridgeProps) {
           {/* Content Container */}
           <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
 
-            {/* Animated Energy Flow Line */}
-            <div className="absolute left-4 right-4 top-1/2 -translate-y-1/2 h-1 pointer-events-none">
-              {/* Static base line */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent" />
-
-              {/* Animated beam - using CSS animation */}
+            {/* Animated Energy Flow - Split around center */}
+            {/* Top beam - arcs above center */}
+            <div className="absolute left-4 right-4 top-1/2 h-16 -translate-y-1/2 pointer-events-none overflow-hidden">
               <div
-                className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-transparent via-indigo-400 to-transparent animate-slide-beam"
+                className="absolute w-20 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent rounded-full"
                 style={{
-                  animation: "slideBeam 3s linear infinite"
+                  animation: "slideBeamTop 3s ease-in-out infinite",
+                  top: "50%",
+                  marginTop: "-1px"
+                }}
+              />
+            </div>
+
+            {/* Bottom beam - arcs below center */}
+            <div className="absolute left-4 right-4 top-1/2 h-16 -translate-y-1/2 pointer-events-none overflow-hidden">
+              <div
+                className="absolute w-20 h-0.5 bg-gradient-to-r from-transparent via-pink-400 to-transparent rounded-full"
+                style={{
+                  animation: "slideBeamBottom 3s ease-in-out infinite",
+                  top: "50%",
+                  marginTop: "-1px"
                 }}
               />
             </div>

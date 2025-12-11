@@ -209,14 +209,36 @@ h6 {
   animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Bridge Energy Beam Animation */
-@keyframes slideBeam {
+/* Bridge Energy Beam Animation - Split Around Center */
+@keyframes slideBeamTop {
   0% {
-    transform: translateX(0);
+    left: 0;
+    top: 50%;
     opacity: 0;
   }
 
   10% {
+    opacity: 1;
+  }
+
+  /* Approach center - start moving up */
+  40% {
+    left: 40%;
+    top: 20%;
+    opacity: 1;
+  }
+
+  /* Pass center - peak of arc */
+  50% {
+    left: 50%;
+    top: 10%;
+    opacity: 1;
+  }
+
+  /* Leave center - moving back down */
+  60% {
+    left: 60%;
+    top: 20%;
     opacity: 1;
   }
 
@@ -225,11 +247,55 @@ h6 {
   }
 
   100% {
-    transform: translateX(calc(100vw - 6rem));
+    left: calc(100% - 5rem);
+    top: 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes slideBeamBottom {
+  0% {
+    left: 0;
+    top: 50%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  /* Approach center - start moving down */
+  40% {
+    left: 40%;
+    top: 80%;
+    opacity: 1;
+  }
+
+  /* Pass center - peak of arc */
+  50% {
+    left: 50%;
+    top: 90%;
+    opacity: 1;
+  }
+
+  /* Leave center - moving back up */
+  60% {
+    left: 60%;
+    top: 80%;
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(100% - 5rem);
+    top: 50%;
     opacity: 0;
   }
 }
 
 .animate-slide-beam {
-  animation: slideBeam 3s linear infinite;
+  animation: slideBeamTop 3s ease-in-out infinite;
 }
