@@ -39,25 +39,56 @@ export default function Bridge({ content }: BridgeProps) {
           {/* Base Bridge Line - Full Width */}
           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
 
-          {/* Content Container with Animation Track */}
+          {/* Content Container */}
           <div className="w-full max-w-4xl mx-auto px-4 relative z-10">
-            {/* Animation Track - Clipped Container */}
-            <div className="absolute top-1/2 left-4 right-4 h-1 -translate-y-1/2 overflow-hidden">
-              <motion.div
-                className="absolute inset-0 h-full w-full"
-                style={{
-                  background: "linear-gradient(90deg, transparent 0%, transparent 40%, rgba(129, 140, 248, 0.8) 50%, transparent 60%, transparent 100%)"
-                }}
-                animate={{
-                  x: ["-100%", "100%"]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatDelay: 0.5
-                }}
-              />
+
+            {/* Animation Tracks - Split around center */}
+            {/* Top Path */}
+            <div className="absolute left-4 right-4 h-8 top-1/2 -translate-y-[calc(50%+16px)] overflow-hidden pointer-events-none">
+              <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="beam-gradient-top" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="transparent" />
+                    <stop offset="45%" stopColor="transparent" />
+                    <stop offset="50%" stopColor="rgba(129, 140, 248, 0.6)" />
+                    <stop offset="55%" stopColor="transparent" />
+                    <stop offset="100%" stopColor="transparent" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  d="M 0,24 Q 50%,0 100%,24"
+                  fill="none"
+                  stroke="url(#beam-gradient-top)"
+                  strokeWidth="1"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: [0, 1], opacity: [0, 1, 1, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
+                />
+              </svg>
+            </div>
+
+            {/* Bottom Path */}
+            <div className="absolute left-4 right-4 h-8 top-1/2 translate-y-[calc(-50%+16px)] overflow-hidden pointer-events-none">
+              <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="beam-gradient-bottom" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="transparent" />
+                    <stop offset="45%" stopColor="transparent" />
+                    <stop offset="50%" stopColor="rgba(129, 140, 248, 0.6)" />
+                    <stop offset="55%" stopColor="transparent" />
+                    <stop offset="100%" stopColor="transparent" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  d="M 0,0 Q 50%,24 100%,0"
+                  fill="none"
+                  stroke="url(#beam-gradient-bottom)"
+                  strokeWidth="1"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: [0, 1], opacity: [0, 1, 1, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5, delay: 0.1 }}
+                />
+              </svg>
             </div>
 
             {/* Labels Container */}
@@ -72,7 +103,7 @@ export default function Bridge({ content }: BridgeProps) {
               </motion.div>
 
               {/* Central Node */}
-              <div className="relative">
+              <div className="relative z-20">
                 <motion.div
                   className="w-16 h-16 bg-white/10 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.3)]"
                   animate={{
