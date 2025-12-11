@@ -35,26 +35,56 @@ export default function Bridge({ content }: BridgeProps) {
           </p>
         </motion.div>
 
-        <div className="relative h-40 md:h-64 flex items-center justify-center">
-          {/* Animated Bridge Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
+        <div className="relative h-40 md:h-64 flex items-center justify-center group">
+          {/* Base Bridge Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
 
-          <div className="flex justify-between w-full max-w-4xl mx-auto px-4">
-            <div className="text-left">
-              <div className="text-2xl font-bold text-indigo-300 mb-2">{content.web2_label}</div>
-              <div className="text-sm text-slate-400">{content.web2_sublabel}</div>
-            </div>
+          {/* Animated Energy Flow */}
+          <motion.div
+            className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent blur-[1px]"
+            animate={{
+              x: ["-100%", "100%"],
+              opacity: [0, 1, 0]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear",
+              repeatDelay: 0.5
+            }}
+          />
 
+          <div className="flex justify-between w-full max-w-4xl mx-auto px-4 relative z-10">
+            {/* Web2 Side */}
+            <motion.div
+              className="text-left cursor-default p-4 rounded-xl transition-all duration-500 hover:bg-white/5"
+              whileHover={{ x: 5 }}
+            >
+              <div className="text-2xl font-bold text-indigo-300 mb-2 group-hover:text-indigo-200 transition-colors">{content.web2_label}</div>
+              <div className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">{content.web2_sublabel}</div>
+            </motion.div>
+
+            {/* Central Node */}
             <div className="relative">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.5)]">
-                <span className="text-2xl">∞</span>
-              </div>
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md border border-white/20 flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.3)]"
+                animate={{
+                  boxShadow: ["0 0 30px rgba(99,102,241,0.3)", "0 0 50px rgba(99,102,241,0.6)", "0 0 30px rgba(99,102,241,0.3)"]
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <span className="text-2xl text-white">∞</span>
+              </motion.div>
             </div>
 
-            <div className="text-right">
-              <div className="text-2xl font-bold text-pink-300 mb-2">{content.web3_label}</div>
-              <div className="text-sm text-slate-400">{content.web3_sublabel}</div>
-            </div>
+            {/* Web3 Side */}
+            <motion.div
+              className="text-right cursor-default p-4 rounded-xl transition-all duration-500 hover:bg-white/5"
+              whileHover={{ x: -5 }}
+            >
+              <div className="text-2xl font-bold text-pink-300 mb-2 group-hover:text-pink-200 transition-colors">{content.web3_label}</div>
+              <div className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">{content.web3_sublabel}</div>
+            </motion.div>
           </div>
         </div>
       </div>
