@@ -132,18 +132,7 @@
     @apply font-heading font-bold tracking-tight;
   }
 
-  /* Glassmorphism Utilities */
-  .glass {
-    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-lg;
-  }
 
-  .glass-card {
-    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1;
-  }
-
-  .glass-nav {
-    @apply bg-white/30 backdrop-blur-lg border-b border-white/20;
-  }
 }
 
 @layer components {
@@ -173,6 +162,19 @@
       padding-right: 2rem;
       max-width: 1280px;
     }
+  }
+
+  /* Glassmorphism Utilities */
+  .glass {
+    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .glass-nav {
+    @apply bg-white/30 backdrop-blur-lg border-b border-white/20;
   }
 }
 
