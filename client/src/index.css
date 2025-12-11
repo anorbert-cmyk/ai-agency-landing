@@ -209,43 +209,46 @@ h6 {
   animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Bridge Energy Beam Animation - Color Transition */
+/* Bridge Energy Beam Animation - Continuous Color Transition */
 @keyframes slideBeamColor {
   0% {
     left: 0;
     opacity: 0;
-    --beam-color: #818cf8;
-    /* indigo-400 */
     background: linear-gradient(90deg, transparent, #818cf8, transparent);
   }
 
-  10% {
+  5% {
     opacity: 1;
     background: linear-gradient(90deg, transparent, #818cf8, transparent);
+  }
+
+  25% {
+    left: 25%;
+    background: linear-gradient(90deg, transparent, #8b7ff5, transparent);
   }
 
   50% {
-    left: calc(50% - 3rem);
-    opacity: 1;
+    left: 50%;
     background: linear-gradient(90deg, transparent, #a78bfa, transparent);
-    /* purple mix */
   }
 
-  90% {
+  75% {
+    left: 75%;
+    background: linear-gradient(90deg, transparent, #d580dc, transparent);
+  }
+
+  95% {
     opacity: 1;
     background: linear-gradient(90deg, transparent, #f472b6, transparent);
-    /* pink-400 */
   }
 
   100% {
     left: calc(100% - 6rem);
     opacity: 0;
-    --beam-color: #f472b6;
-    /* pink-400 */
     background: linear-gradient(90deg, transparent, #f472b6, transparent);
   }
 }
 
 .animate-slide-beam {
-  animation: slideBeamColor 3s ease-in-out infinite;
+  animation: slideBeamColor 2.5s linear infinite;
 }
