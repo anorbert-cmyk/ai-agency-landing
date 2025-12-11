@@ -22,8 +22,11 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
       <Helmet>
-        <title>{content.header.title} | Lumina</title>
-        <meta name="description" content={content.header.subtitle} />
+        <title>AI & Web3 Marketing Services | Lumina Digital</title>
+        <meta name="description" content="Full-service AI marketing, Web3 community building, generative content, and growth strategy. Discover our comprehensive digital services." />
+        <link rel="canonical" href="https://luminadigital.com/services" />
+        <meta property="og:title" content="AI & Web3 Marketing Services | Lumina Digital" />
+        <meta property="og:url" content="https://luminadigital.com/services" />
       </Helmet>
       <Navigation />
 

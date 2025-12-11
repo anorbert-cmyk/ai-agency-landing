@@ -18,8 +18,11 @@ export default function WorkPage() {
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
       <Helmet>
-        <title>Selected Work | Lumina - AI & Web3 Agency</title>
-        <meta name="description" content="A showcase of our impact across industries. See how we help brands grow with AI and Web3." />
+        <title>Our Work | AI & Web3 Case Studies | Lumina Digital</title>
+        <meta name="description" content="A showcase of our impact across industries. See how we help brands grow with AI marketing, Web3 communities, and generative strategies." />
+        <link rel="canonical" href="https://luminadigital.com/work" />
+        <meta property="og:title" content="Our Work | Lumina Digital" />
+        <meta property="og:url" content="https://luminadigital.com/work" />
       </Helmet>
       <Navigation />
 

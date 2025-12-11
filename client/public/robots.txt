@@ -1,0 +1,20 @@
+# Lumina Digital - robots.txt
+# https://luminadigital.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://luminadigital.com/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+
+# Disallow admin/private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow important resources
+Allow: /assets/
+Allow: /images/

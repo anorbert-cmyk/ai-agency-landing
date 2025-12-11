@@ -3,15 +3,166 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <title>AI-Native Digital Agency Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+
+  <!-- Primary Meta Tags -->
+  <title>Lumina Digital | AI & Web3 Marketing Agency – Scale Your Brand</title>
+  <meta name="title" content="Lumina Digital | AI & Web3 Marketing Agency – Scale Your Brand" />
+  <meta name="description"
+    content="We're an AI-native digital agency helping brands scale with cutting-edge AI marketing, Web3 community building, and generative content strategies. From SEO to DAOs, we bridge today's needs with tomorrow's tech." />
+  <meta name="keywords"
+    content="AI marketing agency, Web3 marketing, digital agency, AI content, blockchain marketing, DAO community, generative AI, SEO agency, growth marketing, San Francisco agency" />
+  <meta name="author" content="Lumina Digital" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+
+  <!-- Canonical URL (update when domain changes) -->
+  <link rel="canonical" href="https://luminadigital.com/" />
+
+  <!-- Theme & App -->
+  <meta name="theme-color" content="#6366f1" />
+  <meta name="msapplication-TileColor" content="#6366f1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Lumina Digital" />
+  <meta name="application-name" content="Lumina Digital" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luminadigital.com/" />
+  <meta property="og:site_name" content="Lumina Digital" />
+  <meta property="og:title" content="Lumina Digital | AI & Web3 Marketing Agency" />
+  <meta property="og:description"
+    content="We're an AI-native digital agency helping brands scale with cutting-edge AI marketing, Web3 community building, and generative content strategies." />
+  <meta property="og:image" content="https://luminadigital.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Lumina Digital - AI & Web3 Marketing Agency" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://luminadigital.com/" />
+  <meta name="twitter:title" content="Lumina Digital | AI & Web3 Marketing Agency" />
+  <meta name="twitter:description"
+    content="We're an AI-native digital agency helping brands scale with cutting-edge AI marketing, Web3 community building, and generative content strategies." />
+  <meta name="twitter:image" content="https://luminadigital.com/og-image.jpg" />
+  <meta name="twitter:site" content="@luminadigital" />
+  <meta name="twitter:creator" content="@luminadigital" />
+
+  <!-- Geo-Targeting / Local SEO -->
+  <meta name="geo.region" content="US-CA" />
+  <meta name="geo.placename" content="San Francisco" />
+  <meta name="geo.position" content="37.7749;-122.4194" />
+  <meta name="ICBM" content="37.7749, -122.4194" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://luminadigital.com/#organization",
+        "name": "Lumina Digital",
+        "url": "https://luminadigital.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://luminadigital.com/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "description": "AI-native digital agency specializing in AI marketing, Web3 community building, and generative content strategies.",
+        "sameAs": [
+          "https://twitter.com/luminadigital",
+          "https://linkedin.com/company/luminadigital",
+          "https://instagram.com/luminadigital"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-555-000-0000",
+          "contactType": "sales",
+          "email": "hello@lumina.digital",
+          "availableLanguage": ["English"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://luminadigital.com/#website",
+        "url": "https://luminadigital.com",
+        "name": "Lumina Digital",
+        "description": "AI & Web3 Marketing Agency",
+        "publisher": {"@id": "https://luminadigital.com/#organization"},
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://luminadigital.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://luminadigital.com/#localbusiness",
+        "name": "Lumina Digital",
+        "image": "https://luminadigital.com/og-image.jpg",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Innovation Drive, Suite 400",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94103",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        },
+        "url": "https://luminadigital.com",
+        "telephone": "+1-555-000-0000",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://luminadigital.com/#webpage",
+        "url": "https://luminadigital.com",
+        "name": "Lumina Digital | AI & Web3 Marketing Agency",
+        "isPartOf": {"@id": "https://luminadigital.com/#website"},
+        "about": {"@id": "https://luminadigital.com/#organization"},
+        "description": "We're an AI-native digital agency helping brands scale with cutting-edge AI marketing, Web3 community building, and generative content strategies."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
+
+  <!-- Security -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com;">
+    content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com;" />
 </head>
 
 <body>

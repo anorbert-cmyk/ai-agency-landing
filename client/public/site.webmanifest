@@ -1,0 +1,21 @@
+{
+    "name": "Lumina Digital",
+    "short_name": "Lumina",
+    "description": "AI & Web3 Marketing Agency",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#6366f1",
+    "icons": [
+        {
+            "src": "/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

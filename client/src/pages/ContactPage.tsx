@@ -6,15 +6,23 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
+      <Helmet>
+        <title>Contact Us | Lumina Digital – AI & Web3 Agency</title>
+        <meta name="description" content="Ready to future-proof your brand? Get in touch with Lumina Digital. We help brands scale with AI marketing and Web3 strategies." />
+        <link rel="canonical" href="https://luminadigital.com/contact" />
+        <meta property="og:title" content="Contact Us | Lumina Digital" />
+        <meta property="og:url" content="https://luminadigital.com/contact" />
+      </Helmet>
       <Navigation />
-      
+
       <main className="flex-grow">
-        <PageHeader 
-          title="Let's Talk" 
+        <PageHeader
+          title="Let's Talk"
           subtitle="Ready to future-proof your brand? Tell us about your project."
           gradient="from-orange-400 to-rose-400"
         />
@@ -112,10 +120,10 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-slate-700">Message</label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell us about your project goals, timeline, and budget..." 
-                      className="min-h-[150px] bg-white/50" 
+                    <Textarea
+                      id="message"
+                      placeholder="Tell us about your project goals, timeline, and budget..."
+                      className="min-h-[150px] bg-white/50"
                     />
                   </div>
 

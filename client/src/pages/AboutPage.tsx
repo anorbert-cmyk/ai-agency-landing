@@ -20,8 +20,11 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
       <Helmet>
-        <title>{content.header.title} | Lumina</title>
-        <meta name="description" content={content.header.subtitle} />
+        <title>About Us | Lumina Digital – AI & Web3 Agency</title>
+        <meta name="description" content="Meet the team behind Lumina Digital. We're AI-native marketers and Web3 pioneers on a mission to future-proof brands." />
+        <link rel="canonical" href="https://luminadigital.com/about" />
+        <meta property="og:title" content="About Us | Lumina Digital" />
+        <meta property="og:url" content="https://luminadigital.com/about" />
       </Helmet>
       <Navigation />
 

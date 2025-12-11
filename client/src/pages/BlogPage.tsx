@@ -18,8 +18,11 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen flex flex-col font-sans text-foreground bg-background selection:bg-primary/20">
       <Helmet>
-        <title>Insights | Lumina - AI & Web3 Agency</title>
-        <meta name="description" content="Thoughts on the convergence of AI, Web3, and digital culture. Stay ahead of the curve with our latest articles." />
+        <title>Insights | AI & Web3 Marketing Blog | Lumina Digital</title>
+        <meta name="description" content="Thoughts on the convergence of AI, Web3, and digital culture. Stay ahead of the curve with insights from industry experts." />
+        <link rel="canonical" href="https://luminadigital.com/blog" />
+        <meta property="og:title" content="Insights | Lumina Digital" />
+        <meta property="og:url" content="https://luminadigital.com/blog" />
       </Helmet>
       <Navigation />
 
