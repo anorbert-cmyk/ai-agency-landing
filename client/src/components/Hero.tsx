@@ -24,8 +24,7 @@ export default function Hero({ content }: HeroProps) {
         <img
           src={heroBg}
           alt="Abstract Golden Rings Background"
-          className="w-full h-full object-cover opacity-80 animate-spin-slow scale-150"
-          style={{ animationDuration: '60s' }}
+          className="w-full h-full object-cover opacity-80 scale-105"
         />
         {/* Overlay gradient for better text contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />

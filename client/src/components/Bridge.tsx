@@ -16,8 +16,9 @@ export default function Bridge({ content }: BridgeProps) {
 
   return (
     <section className="py-32 relative overflow-hidden bg-slate-900 text-white">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-[url('/images/bg-aurora-gradient.webp')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+      {/* Background Gradient - CSS Fallback since image is missing */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950/50 to-purple-950/50 opacity-100" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/20 via-slate-900/0 to-transparent" />
 
       <div className="container relative z-10 text-center">
         <motion.div
