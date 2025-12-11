@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import InteractiveOrb from "./InteractiveOrb";
-import orbImage from "../../public/images/hero-glass-orb.webp";
+import orbImage from "../../public/images/hero-glass-orb.webp"; // Sending keep since we might revert, but arguably could remove too.
 
 export interface HeroProps {
   content?: {
@@ -20,9 +19,16 @@ export default function Hero({ content }: HeroProps) {
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black text-white px-4">
 
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen">
-        <InteractiveOrb />
+      {/* Photorealistic Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero-bg.png"
+          alt="Abstract Golden Rings Background"
+          className="w-full h-full object-cover opacity-80 animate-pulse scale-105"
+          style={{ animationDuration: '8s' }}
+        />
+        {/* Overlay gradient for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
       </div>
 
       {/* Content Overlay */}
