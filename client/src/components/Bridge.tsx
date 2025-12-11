@@ -40,9 +40,9 @@ export default function Bridge({ content }: BridgeProps) {
           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
 
           <div className="flex justify-between w-full max-w-4xl mx-auto px-4 relative z-10">
-            {/* Animated Energy Flow - Constrained to Content Width */}
+            {/* Animated Energy Flow - Constrained to Content Width (Accounting for padding) */}
             <motion.div
-              className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent blur-[1px] -z-10"
+              className="absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent blur-[1px] -z-10"
               initial={{ x: "-50%", opacity: 0 }}
               animate={{
                 x: ["-50%", "50%"],
@@ -52,7 +52,7 @@ export default function Bridge({ content }: BridgeProps) {
                 duration: 3,
                 repeat: Infinity,
                 ease: "linear",
-                times: [0, 0.05, 0.95, 1],
+                times: [0, 0.1, 0.9, 1],
                 repeatDelay: 0.2
               }}
             />
