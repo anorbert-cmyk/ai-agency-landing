@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import InteractiveOrb from "./InteractiveOrb";
 import orbImage from "../../public/images/hero-glass-orb.webp";
 
 export interface HeroProps {
@@ -76,20 +77,10 @@ export default function Hero({ content }: HeroProps) {
           className="relative h-[500px] w-full flex items-center justify-center"
         >
           {/* Main Glass Orb */}
-          <motion.img
-            src={orbImage}
-            alt="Abstract Glass Orb"
-            className="w-full max-w-[600px] object-contain drop-shadow-2xl"
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, -5, 0]
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 6,
-              ease: "easeInOut"
-            }}
-          />
+          {/* Main Glass Orb - Replaced with 3D Component */}
+          <div className="absolute inset-0 z-20">
+            <InteractiveOrb />
+          </div>
 
           {/* Floating Elements */}
           <div className="absolute inset-0 pointer-events-none">
