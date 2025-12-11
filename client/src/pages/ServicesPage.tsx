@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { getPageContent } from "@/lib/content";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
@@ -48,7 +49,7 @@ export default function ServicesPage() {
                 <div className="grid md:grid-cols-2 gap-8">
                   {section.items.map((item: ServicesListItem, index: number) => {
                     const IconComponent = Icons[item.icon as keyof typeof Icons];
-                    const Icon = typeof IconComponent === 'function' ? IconComponent : Icons.HelpCircle;
+                    const Icon = (typeof IconComponent === 'function' ? IconComponent : Icons.HelpCircle) as LucideIcon;
                     return (
                       <motion.div
                         key={item.title}
