@@ -1,7 +1,7 @@
 
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, Float, Stars } from "@react-three/drei";
+import { Float, Stars } from "@react-three/drei";
 import * as THREE from "three";
 
 function Ring({
@@ -99,10 +99,10 @@ export default function InteractiveOrb() { // Keeping component name for compati
                 <color attach="background" args={['#000000']} />
 
                 {/* Environment for reflections */}
-                <Environment preset="city" />
+                {/* Environment removed to fix production fetch error */}
 
                 {/* Lights */}
-                <ambientLight intensity={0.5} />
+                <ambientLight intensity={1.5} />
                 <pointLight position={[10, 10, 10]} intensity={1} color="#ffaa00" />
                 <pointLight position={[-10, -10, -10]} intensity={1} color="#ff4400" />
 
