@@ -1,83 +1,87 @@
 
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Stars } from "@react-three/drei";
+import { Float, Stars, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 
-function Ring({
+function TunnelRing({
     position,
     rotation,
     scale,
     color,
-    speed
+    opacity
 }: {
     position: [number, number, number],
     rotation: [number, number, number],
     scale: number,
     color: string,
-    speed: number
+    opacity: number
 }) {
-    const meshRef = useRef<THREE.Mesh>(null);
-
-    useFrame((state, delta) => {
-        if (!meshRef.current) return;
-        // Rotate rings
-        meshRef.current.rotation.x += delta * speed * 0.5;
-        meshRef.current.rotation.y += delta * speed * 0.3;
-        meshRef.current.rotation.z += delta * speed * 0.1;
-    });
-
     return (
-        <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
-            <torusGeometry args={[3, 0.02, 16, 100]} />
-            <meshStandardMaterial
+        <mesh position={position} rotation={rotation} scale={scale}>
+            {/* Large thin ring */}
+            <torusGeometry args={[4, 0.05, 32, 120, Math.PI * 1.2]} />
+            <meshPhysicalMaterial
                 color={color}
                 emissive={color}
                 emissiveIntensity={2}
-                roughness={0.1}
-                metalness={1}
+                transparent
+                opacity={opacity}
+                roughness={0.2}
+                metalness={0.8}
                 toneMapped={false}
             />
         </mesh>
     );
 }
 
-function GlowingRingsScene({ mouse }: { mouse: React.MutableRefObject<[number, number]> }) {
+function GlowingTunnelScene({ mouse }: { mouse: React.MutableRefObject<[number, number]> }) {
     const groupRef = useRef<THREE.Group>(null);
 
     useFrame((state, delta) => {
         if (!groupRef.current) return;
 
-        // Mouse parallax for the whole group
-        const targetX = mouse.current[0] * 0.5;
-        const targetY = mouse.current[1] * 0.5;
+        // Smooth mouse look
+        const targetRotX = mouse.current[1] * 0.15; // Look up/down
+        const targetRotY = mouse.current[0] * 0.15; // Look left/right
 
-        groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetY * 0.2, delta * 2);
-        groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetX * 0.2, delta * 2);
+        groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetRotX, delta * 2);
+        groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotY, delta * 2);
+
+        // Slight idle sway
+        groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.2) * 0.05;
     });
 
-    // Generate multiple rings
+    // Generate a structured tunnel of rings
     const rings = useMemo(() => {
-        return Array.from({ length: 12 }).map((_, i) => ({
-            position: [0, 0, 0] as [number, number, number],
-            rotation: [Math.random() * Math.PI, Math.random() * Math.PI, 0] as [number, number, number],
-            scale: 1 + i * 0.15, // Increasing size
-            color: i % 2 === 0 ? "#FFD700" : "#FFA500", // Gold and Orange
-            speed: (Math.random() * 0.2 + 0.1) * (i % 2 === 0 ? 1 : -1) // Alternating direction
+        return Array.from({ length: 8 }).map((_, i) => ({
+            // Stack them in depth (Z axis)
+            position: [0, 0, -i * 1.5] as [number, number, number],
+            // No random rotation, they form a cohesive tunnel structure
+            rotation: [0, 0, 0] as [number, number, number],
+            // Scale down slightly as they go back to enhance perspective
+            scale: 1 - i * 0.05,
+            // Golden fading to darker orange in back
+            color: i < 3 ? "#FFD700" : "#EFAA00",
+            opacity: Math.max(0.1, 1 - i * 0.15)
         }));
     }, []);
 
     return (
-        <group ref={groupRef}>
+        <group ref={groupRef} position={[0, 1, 0]} rotation={[0.4, 0, 0]}> {/* Tilted up to form an arc overhead */}
             {rings.map((props, i) => (
-                <Ring key={i} {...props} />
+                <TunnelRing key={i} {...props} />
             ))}
-            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+            {/* Ambient glow mesh in the distance */}
+            <mesh position={[0, 0, -15]}>
+                <sphereGeometry args={[8, 32, 32]} />
+                <meshBasicMaterial color="#FF5500" transparent opacity={0.1} fog={false} />
+            </mesh>
         </group>
     );
 }
 
-export default function InteractiveOrb() { // Keeping component name for compatibility check first
+export default function InteractiveOrb() {
     const mouse = useRef<[number, number]>([0, 0]);
 
     const handleMouseMove = (e: React.MouseEvent) => {
@@ -93,22 +97,22 @@ export default function InteractiveOrb() { // Keeping component name for compati
         >
             <Canvas
                 className="w-full h-full"
-                camera={{ position: [0, 0, 8], fov: 45 }}
-                gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping }}
+                gl={{ antialias: true, toneMapping: THREE.ReinhardToneMapping, toneMappingExposure: 1.5 }}
             >
-                <color attach="background" args={['#000000']} />
+                <PerspectiveCamera makeDefault position={[0, 0, 6]} fov={60} />
 
-                {/* Environment for reflections */}
-                {/* Environment removed to fix production fetch error */}
+                <color attach="background" args={['#030303']} />
+                <fog attach="fog" args={['#030303', 5, 20]} />
 
                 {/* Lights */}
-                <ambientLight intensity={1.5} />
-                <pointLight position={[10, 10, 10]} intensity={1} color="#ffaa00" />
-                <pointLight position={[-10, -10, -10]} intensity={1} color="#ff4400" />
+                <ambientLight intensity={2} />
+                <pointLight position={[0, 0, 5]} intensity={5} color="#FFAA00" distance={10} />
 
-                <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
-                    <GlowingRingsScene mouse={mouse} />
+                <Float speed={2} rotationIntensity={0.2} floatIntensity={0.2}>
+                    <GlowingTunnelScene mouse={mouse} />
                 </Float>
+
+                <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={0.5} />
             </Canvas>
         </div>
     );
