@@ -40,47 +40,65 @@ export default function Hero({ content }: HeroProps) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center w-full max-w-6xl mx-auto"
         >
-          {/* Top Navigation Placeholder (Visual match for "ROAR.AI" header in reference) */}
-          <div className="w-full flex justify-between items-center mb-16 md:mb-24 opacity-80 border-b border-white/10 pb-4 text-xs tracking-widest text-[#888]">
-            <div>AGENCY.AI</div>
-            <div className="hidden md:flex gap-8">
-              <span>STRATEGY</span>
-              <span>WORKFLOWS</span>
-              <span className="text-white font-bold flex items-center gap-2">
+          {/* Top Navigation */}
+          <div className="w-full flex justify-between items-center mb-16 md:mb-24 z-20 relative text-sm tracking-widest text-slate-300">
+            <Link href="/">
+              <a className="font-bold text-white hover:text-emerald-400 transition-colors">LUMINA DIGITAL</a>
+            </Link>
+
+            <div className="hidden md:flex gap-8 items-center bg-black/20 backdrop-blur-sm px-8 py-3 rounded-full border border-white/5">
+              <Link href="/services"><a className="hover:text-white transition-colors cursor-pointer">SERVICES</a></Link>
+              <Link href="/work"><a className="hover:text-white transition-colors cursor-pointer">WORK</a></Link>
+              <Link href="/about"><a className="text-white font-bold flex items-center gap-2 cursor-pointer">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                 AGENCY
+              </a></Link>
+              <Link href="/contact"><a className="hover:text-white transition-colors cursor-pointer">CONTACT</a></Link>
+            </div>
+
+            <Link href="/contact">
+              <Button size="sm" className="bg-white text-black hover:bg-slate-200 font-bold px-6 rounded-full">
+                BOOK CALL
+              </Button>
+            </Link>
+          </div>
+
+
+          <div className="relative mb-8 text-center">
+            {/* Tagline */}
+            <div className="flex justify-center mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">
+                  Next-Gen Digital Agency
+                </span>
+              </div>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-tight mb-6 drop-shadow-2xl">
+              Scaling Brands <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+                in the Age of AI & Web3
               </span>
-              <span>RESULTS</span>
-              <span>CONTACT</span>
-            </div>
-            <div className="bg-white text-black px-4 py-1.5 font-bold">BOOK CALL</div>
-          </div>
-
-
-          <div className="relative mb-2">
-            <h1 className="text-[12vw] md:text-[8rem] lg:text-[10rem] leading-[0.85] font-light tracking-tighter text-white/90 mix-blend-overlay">
-              ALGORITHM
             </h1>
-            <h1 className="text-[12vw] md:text-[8rem] lg:text-[10rem] leading-[0.85] font-normal tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
-              DOMINANCE
-            </h1>
-          </div>
 
-          <div className="flex flex-col items-center gap-6 my-12">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
-              <div className="relative w-3 h-3">
-                <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75"></span>
-                <span className="relative block w-3 h-3 rounded-full bg-emerald-500"></span>
-              </div>
-              <div className="flex flex-col text-left leading-none">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">AI_STATUS</span>
-                <span className="text-sm font-bold text-white tracking-wide">Optimizing</span>
-              </div>
-            </div>
-
-            <p className="text-xl md:text-2xl text-slate-400 max-w-xl font-light leading-relaxed">
-              Automated Business Growth Strategies
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md">
+              We define the digital frontier. From generative marketing to decentralized communities,
+              we build the systems that power the next generation of business.
             </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/work">
+                <Button size="lg" className="rounded-full bg-blue-600 hover:bg-blue-700 text-white px-8 h-14 text-lg shadow-lg shadow-blue-900/20 border border-blue-500/30">
+                  Our Work <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="rounded-full border-white/10 bg-white/5 hover:bg-white/10 text-white px-8 h-14 text-lg backdrop-blur-sm">
+                  View Services
+                </Button>
+              </Link>
+            </div>
           </div>
 
         </motion.div>
