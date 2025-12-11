@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import heroBg from "@/assets/hero-bg.png";
 import { Link } from "wouter";
-import orbImage from "../../public/images/hero-glass-orb.webp"; // Sending keep since we might revert, but arguably could remove too.
 
 export interface HeroProps {
   content?: {
@@ -22,7 +22,7 @@ export default function Hero({ content }: HeroProps) {
       {/* Photorealistic Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.png"
+          src={heroBg}
           alt="Abstract Golden Rings Background"
           className="w-full h-full object-cover opacity-80 animate-pulse scale-105"
           style={{ animationDuration: '8s' }}
