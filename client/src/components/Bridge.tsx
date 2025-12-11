@@ -45,14 +45,15 @@ export default function Bridge({ content }: BridgeProps) {
               className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-400 to-transparent blur-[1px] -z-10"
               initial={{ x: "-50%", opacity: 0 }}
               animate={{
-                x: ["-40%", "40%"],
-                opacity: [0, 1, 0]
+                x: ["-50%", "50%"],
+                opacity: [0, 1, 1, 0]
               }}
               transition={{
-                duration: 4,
+                duration: 3,
                 repeat: Infinity,
-                ease: "easeInOut",
-                repeatDelay: 0.5
+                ease: "linear",
+                times: [0, 0.05, 0.95, 1],
+                repeatDelay: 0.2
               }}
             />
 
