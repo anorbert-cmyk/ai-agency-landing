@@ -118,22 +118,6 @@
   --destructive: oklch(0.5 0.2 27);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.3 0.02 260);
-  --input: oklch(0.3 0.02 260);
-  --ring: oklch(0.65 0.2 270);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
-    background-image: url('/images/bg-aurora-gradient.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;
   }

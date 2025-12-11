@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.png";
+import heroBg from "@/assets/hero-bg.webp";
 import { Link } from "wouter";
 
 export interface HeroProps {
@@ -20,12 +20,12 @@ export default function Hero({ content }: HeroProps) {
     <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black text-white px-4">
 
       {/* Photorealistic Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={heroBg}
           alt="Abstract Golden Rings Background"
-          className="w-full h-full object-cover opacity-80 animate-pulse scale-105"
-          style={{ animationDuration: '8s' }}
+          className="w-full h-full object-cover opacity-80 animate-spin-slow scale-150"
+          style={{ animationDuration: '60s' }}
         />
         {/* Overlay gradient for better text contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
