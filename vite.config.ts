@@ -41,5 +41,12 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    proxy: {
+      // Proxy the Decap CMS local backend API
+      '/api/v1': {
+        target: 'http://localhost:8081',
+        changeOrigin: true,
+      },
+    },
   },
 });
